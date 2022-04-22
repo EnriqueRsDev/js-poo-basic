@@ -8,44 +8,79 @@
 class Animes {
     constructor (
         {
+            id,
             name,
-            chapters
+            numberOfChapter,
+            chapters = []
         }
     ) {
+        this.id = id;
         this.name = name;
+        this.numberOfChapter = numberOfChapter;
         this.chapters = chapters;
+    }
+
+    //metodos
+    //addChapter
+    addChapter({number, chapterName, duration}) {
+        this.chapters.push({number, chapterName, duration});
     }
 }
 
 //Instanciando
 const anime01 = new Animes(
     {
-        name: "Sono Bisquet Doll",
-        chapters: 24
+        id: 1,
+        name: "anime 1",
+        numberOfChapter: 24,
+        chapters: [
+            {number:1, chapterName: "name 1", duration: "duration"},
+            {number:2, chapterName: "name 2", duration: "duration"},
+        ]
     }
 );
 const anime02 = new Animes(
     {
+        id: 2,
         name: "anime 2",
-        chapters: 24
+        numberOfChapter: 24,
+        chapters: {
+            chapter1: {chapterName: "name 1", duration: "duration"},
+            chapter2: {chapterName: "name 2", duration: "duration"},
+        }
     }
 );
 const anime03 = new Animes(
     {
+        id: 3,
         name: "anime 3",
-        chapters: 24
+        numberOfChapter: 24,
+        chapters: [
+            {number:1, chapterName: "name 1", duration: "duration"},
+            {number:2, chapterName: "name 2", duration: "duration"},
+        ]
     }
 );
 const anime04 = new Animes(
     {
+        id: 4,
         name: "anime 4",
-        chapters: 24
+        numberOfChapter: 24,
+        chapters: [
+            {number:1, chapterName: "name 1", duration: "duration"},
+            {number:2, chapterName: "name 2", duration: "duration"},
+        ]
     }
 );
 const anime05 = new Animes(
     {
+        id: 5,
         name: "anime 5",
-        chapters: 24
+        numberOfChapter: 24,
+        chapters: [
+            {number:1, chapterName: "name 1", duration: "duration"},
+            {number:2, chapterName: "name 2", duration: "duration"},
+        ]
     }
 );
 
@@ -56,21 +91,27 @@ class UserProfile {
             name,
             userName,
             age,
+            watching = [],
             watched = [],
             planToWatch = [],
-            dropped = []
+            dropped = [],
         }
     ) {
         this.name = name;
         this.userName = userName;
         this.age = age;
         this.animes = {
+            watching,   //watching: watching
             watched,    //watched: watched
             planToWatch, //planToWatch: planToWatch
             dropped //dropped: dropped
-        }
+        };
     }
 
+    //Watching
+    addWatching(animeName) {
+        this.animes.watching.push(animeName);
+    }
     //watched
     addWatched(animeName) {
         this.animes.watched.push(animeName);
@@ -91,8 +132,9 @@ const user1 = new UserProfile(
         name: "Paco",
         userName: "pacOtako",
         age: 21,
+        watching: [],
         watched: [],
         planToWatch: [],
-        dropped: []
+        dropped: [],
     }
 );
