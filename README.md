@@ -3,3 +3,4 @@
 ***This repository contain the fundaments of the POO in JavaScript.***
 
 - Abstraction
+- Encapsulamiento
