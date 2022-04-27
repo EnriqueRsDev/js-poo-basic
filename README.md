@@ -4,3 +4,4 @@
 
 - Abstraction
 - Encapsulamiento
+- Herencia
