@@ -67,7 +67,9 @@ class BasicUser extends User {
     } 
 
     addSerie(serieName) {
-        if (serieName.isBasic) {
+        if (serieName == undefined) {
+            console.warn("ERROR! Ingresa un valor válido.")
+        } else if (serieName.isBasic)  {
             this.series.push(serieName);
         } else {
             console.warn("Lo Sentimos! No tienes acceso a esta serie! Adquiere una suscripción o mejora la que ya tienes");
@@ -75,13 +77,19 @@ class BasicUser extends User {
     }
 }
 
+
+
 class PremiunUser extends User {
     constructor(props) {
         super(props);
     }
-    
+
     addSerie(serieName) {
+        if (serieName == undefined) {
+            console.warn("ERROR! Ingresa un valor válido.")
+        } else {
             this.series.push(serieName);
+        }
     }
 }
 
@@ -90,6 +98,17 @@ const user1 = new BasicUser(
         name: "Paco",
         userName: "PacOtoko",
         email: "paco@otako.com",
+        series: [
+            serie1
+        ]
+    }
+);
+
+const user2 = new PremiunUser(
+    {
+        name: "paco2",
+        userName: "pac0tako2",
+        email: "nosoypaco@otako.com",
         series: [
             serie1
         ]
